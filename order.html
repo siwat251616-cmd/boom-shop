@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สั่งซื้อน้ำหอม | หอมละมุน เพอร์ฟูม</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="logo">หอมละมุน ✨</a>
+      <nav>
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html">น้ำหอมทั้งหมด</a>
+        <a href="order.html" class="active">สั่งซื้อ</a>
+        <a href="admin.html" class="admin-link">หลังบ้าน</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-section">
+    <div class="form-wrapper">
+      <h1>แบบฟอร์มสั่งซื้อน้ำหอม</h1>
+      <p>กรอกข้อมูลผู้รับและจำนวนที่ต้องการ ทางร้านจะจัดเตรียมออเดอร์ให้โดยเร็วที่สุด</p>
+
+      <form id="order-form" class="styled-form">
+        <div class="form-group">
+          <label for="product-select">เลือกรายการน้ำหอม *</label>
+          <select id="product-select" required>
+            <option value="">-- กำลังโหลดรายการ --</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quantity">จำนวน (ขวด/ชุด) *</label>
+            <input type="number" id="quantity" min="1" value="1" required>
+          </div>
+          <div class="form-group">
+            <label for="total-price">ราคารวมโดยประมาณ (บาท)</label>
+            <input type="text" id="total-price" readonly value="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="customer-name">ชื่อ-นามสกุล ผู้สั่งซื้อ *</label>
+          <input type="text" id="customer-name" placeholder="เช่น กัญญาภัทร สุขใจ" required>
+        </div>
+
+        <div class="form-group">
+          <label for="customer-phone">เบอร์โทรศัพท์ติดต่อ *</label>
+          <input type="tel" id="customer-phone" placeholder="เช่น 089-123-4567" required>
+        </div>
+
+        <div class="form-group">
+          <label for="customer-address">ที่อยู่จัดส่ง / ข้อความฝากถึงร้าน *</label>
+          <textarea id="customer-address" rows="3" placeholder="ระบุบ้านเลขที่ ถนน แขวง/ตำบล เขต/อำเภอ จังหวัด รหัสไปรษณีย์ หรือหมายเหตุของขวัญ" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">ยืนยันการสั่งซื้อ</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 หอมละมุน เพอร์ฟูม. สงวนลิขสิทธิ์.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

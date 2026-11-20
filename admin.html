@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบจัดการคำสั่งซื้อ | หอมละมุน เพอร์ฟูม</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="logo">หอมละมุน ✨ (Admin)</a>
+      <nav>
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html">น้ำหอมทั้งหมด</a>
+        <a href="order.html">สั่งซื้อ</a>
+        <a href="admin.html" class="active admin-link">หลังบ้าน</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-section">
+    <div class="admin-header">
+      <div>
+        <h1>รายการคำสั่งซื้อน้ำหอมทั้งหมด</h1>
+        <p>จัดการสถานะหรือลบข้อมูลที่เก็บใน LocalStorage ของเบราว์เซอร์นี้</p>
+      </div>
+      <button id="clear-orders-btn" class="btn btn-danger">ล้างข้อมูลทั้งหมด</button>
+    </div>
+
+    <div class="table-responsive">
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th>รหัสออเดอร์</th>
+            <th>วัน-เวลา</th>
+            <th>ลูกค้า</th>
+            <th>รายการน้ำหอม</th>
+            <th>จำนวน</th>
+            <th>ยอดรวม</th>
+            <th>สถานะ</th>
+            <th>จัดการ</th>
+          </tr>
+        </thead>
+        <tbody id="admin-order-list"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 หอมละมุน เพอร์ฟูม. สงวนลิขสิทธิ์.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

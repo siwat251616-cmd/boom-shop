@@ -1,0 +1,56 @@
+[
+  {
+    "id": "PF001",
+    "name": "วู้ดดี้ อู๊ด Eau de Parfum 50ml",
+    "category": "woody",
+    "categoryName": "กลิ่นไม้หอม",
+    "price": 1290,
+    "description": "กลิ่นไม้กฤษณา ไม้ซีดาร์ และหญ้าแฝก ให้ความรู้สึกอบอุ่น สุขุม มีระดับ ติดทนนาน",
+    "image": "images/woody-oud.jpg"
+  },
+  {
+    "id": "PF002",
+    "name": "โรส เวลเว็ต Eau de Parfum 50ml",
+    "category": "floral",
+    "categoryName": "กลิ่นดอกไม้",
+    "price": 1190,
+    "description": "กลิ่นกุหลาบดามัสก์ผสมพีโอนีและมัสก์นุ่มๆ หอมละมุน อ่อนหวาน มีเสน่ห์",
+    "image": "images/floral-rose.jpg"
+  },
+  {
+    "id": "PF003",
+    "name": "ซิตรัส เบอร์กาม็อท Eau de Cologne 100ml",
+    "category": "fresh",
+    "categoryName": "กลิ่นสดชื่น",
+    "price": 990,
+    "description": "กลิ่นส้มเบอร์กาม็อท เลมอน และใบชาขาว ให้ความรู้สึกโปร่งสบาย สดชื่นตลอดวัน",
+    "image": "images/citrus-bergamot.jpg"
+  },
+  {
+    "id": "PF004",
+    "name": "วานิลลา แอมเบอร์ Extrait de Parfum 50ml",
+    "category": "sweet",
+    "categoryName": "กลิ่นอบอุ่นหวานละมุน",
+    "price": 1490,
+    "description": "กลิ่นวานิลลามาดากัสการ์ แอมเบอร์ และคาราเมลบางๆ หอมนุ่มชวนหลงใหลเหมาะกับช่วงเย็น",
+    "image": "images/vanilla-amber.jpg"
+  },
+  {
+    "id": "PF005",
+    "name": "ชุดทดลองกลิ่น 4 ขวด (Discovery Set)",
+    "category": "fresh",
+    "categoryName": "กลิ่นสดชื่น",
+    "price": 690,
+    "description": "รวม 4 กลิ่นยอดนิยมขนาดพกพา 5ml สำหรับทดลองกลิ่นก่อนเลือกขวดจริง",
+    "image": "images/discovery-set.jpg"
+  },
+  {
+    "id": "PF006",
+    "name": "ก้านไม้หอมปรับอากาศ กลิ่นไวท์ที 120ml",
+    "category": "floral",
+    "categoryName": "กลิ่นดอกไม้",
+    "price": 590,
+    "description": "กลิ่นชาขาวและดอกมะลิอ่อนๆ ช่วยสร้างบรรยากาศผ่อนคลายในห้องนอนหรือโต๊ะทำงาน",
+    "image": "images/room-diffuser.jpg"
+  }
+]

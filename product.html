@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>น้ำหอมทั้งหมด | หอมละมุน เพอร์ฟูม</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <a href="index.html" class="logo">หอมละมุน ✨</a>
+      <nav>
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html" class="active">น้ำหอมทั้งหมด</a>
+        <a href="order.html">สั่งซื้อ</a>
+        <a href="admin.html" class="admin-link">หลังบ้าน</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-section">
+    <div class="page-header">
+      <h1>คอลเลกชันน้ำหอมและกลิ่นหอม</h1>
+      <p>กรองตามโทนกลิ่นที่ชอบ หรือกดสั่งซื้อขวดที่สนใจได้ทันที</p>
+    </div>
+
+    <div class="filter-buttons" id="filter-container">
+      <button class="filter-btn active" data-category="all">ทั้งหมด</button>
+      <button class="filter-btn" data-category="woody">กลิ่นไม้หอม</button>
+      <button class="filter-btn" data-category="floral">กลิ่นดอกไม้</button>
+      <button class="filter-btn" data-category="fresh">กลิ่นสดชื่น</button>
+      <button class="filter-btn" data-category="sweet">กลิ่นอบอุ่นหวานละมุน</button>
+    </div>
+
+    <div class="product-grid" id="product-list">
+      <p class="loading-text">กำลังโหลดรายการน้ำหอม...</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 หอมละมุน เพอร์ฟูม. สงวนลิขสิทธิ์.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
