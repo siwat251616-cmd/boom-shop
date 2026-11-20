@@ -101,4 +101,105 @@ async function initOrderPage() {
       quantity: quantity,
       totalPrice: price * quantity,
       customerName: document.getElementById('customer-name').value.trim(),
-      phone: document.getElementById('customer-phone').
+      phone: document.getElementById('customer-phone').value.trim(),
+      address: document.getElementById('customer-address').value.trim(),
+      status: 'รอดำเนินการ'
+    };
+
+    const existingOrders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    existingOrders.unshift(newOrder);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(existingOrders));
+    localStorage.setItem('last_perfume_order', JSON.stringify(newOrder));
+
+    window.location.href = 'thankyou.html';
+  });
+}
+
+function initThankYouPage() {
+  const summaryEl = document.getElementById('last-order-summary');
+  if (!summaryEl) return;
+
+  const lastOrder = JSON.parse(localStorage.getItem('last_perfume_order'));
+  if (!lastOrder) {
+    summaryEl.innerHTML = '<p>ไม่พบข้อมูลคำสั่งซื้อล่าสุด</p>';
+    return;
+  }
+
+  summaryEl.innerHTML = `
+    <p><strong>รหัสคำสั่งซื้อ:</strong> ${lastOrder.orderId}</p>
+    <p><strong>รายการ:</strong> ${lastOrder.productName} x ${lastOrder.quantity}</p>
+    <p><strong>ยอดชำระรวม:</strong> ฿${lastOrder.totalPrice.toLocaleString()}</p>
+    <p><strong>ผู้รับ:</strong> ${lastOrder.customerName} (${lastOrder.phone})</p>
+    <p><strong>ที่อยู่/หมายเหตุ:</strong> ${lastOrder.address}</p>
+  `;
+}
+
+function initAdminPage() {
+  const orderListEl = document.getElementById('admin-order-list');
+  if (!orderListEl) return;
+
+  function renderOrders() {
+    const orders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    if (orders.length === 0) {
+      orderListEl.innerHTML = '<tr><td colspan="8" style="text-align:center; padding: 30px;">ยังไม่มีรายการคำสั่งซื้อน้ำหอมในระบบ</td></tr>';
+      return;
+    }
+
+    orderListEl.innerHTML = orders.map((order, index) => `
+      <tr>
+        <td><strong>${order.orderId}</strong></td>
+        <td>${order.date}</td>
+        <td>
+          ${order.customerName}<br>
+          <small style="color: var(--text-muted);">${order.phone}</small><br>
+          <small style="color: var(--text-muted);">${order.address}</small>
+        </td>
+        <td>${order.productName}</td>
+        <td>${order.quantity}</td>
+        <td>฿${order.totalPrice.toLocaleString()}</td>
+        <td>
+          <span class="status-badge ${order.status === 'จัดส่งแล้ว' ? 'status-completed' : 'status-pending'}">
+            ${order.status}
+          </span>
+        </td>
+        <td>
+          <button class="action-btn" onclick="toggleOrderStatus(${index})">สลับสถานะ</button>
+          <button class="action-btn" style="color: var(--danger-color);" onclick="deleteOrder(${index})">ลบ</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  window.toggleOrderStatus = (index) => {
+    const orders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    orders[index].status = orders[index].status === 'รอดำเนินการ' ? 'จัดส่งแล้ว' : 'รอดำเนินการ';
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
+    renderOrders();
+  };
+
+  window.deleteOrder = (index) => {
+    if (!confirm('ต้องการลบรายการสั่งซื้อนี้ใช่หรือไม่?')) return;
+    const orders = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    orders.splice(index, 1);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
+    renderOrders();
+  };
+
+  const clearBtn = document.getElementById('clear-orders-btn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      if (!confirm('ยืนยันการล้างข้อมูลคำสั่งซื้อทั้งหมด?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      renderOrders();
+    });
+  }
+
+  renderOrders();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initProductPage();
+  initOrderPage();
+  initThankYouPage();
+  initAdminPage();
+});
